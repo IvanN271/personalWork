@@ -1,0 +1,48 @@
+package inClassDemo;
+
+	import java.util.Scanner;
+
+	public class selectionSort {
+
+	    public static void main(String[] args) {
+	    	
+	        Scanner input = new Scanner(System.in);
+	        System.out.println("Please input a list of numbers seperated by a , ");
+	        String listString = input.nextLine();
+	        input.close();
+	        
+	        String[] list = listString.split(",");
+	        
+	        double [] doubleList = new double[list.length];
+	        for (int i=0; i<list.length; i++) {
+	            doubleList[i]=Double.parseDouble(list[i]);
+	        }
+	        selectionSort.SelectionSort(doubleList);
+	        System.out.println("Here is my sorted list");
+	        
+	        for (int i=0; i<doubleList.length; i++) {
+	            System.out.print(doubleList[i] + ",");
+	        }
+
+	    }
+	    
+	    public static void SelectionSort(double[] list) {
+	        for (int i =0; i<list.length -1; i++) {
+	            double currentMin = list[i];
+	            int currentMinIndex =i;
+	            
+	            for (int j = i+1; j<list.length; j++) {
+	                if (currentMin < list[j]) {
+	                    currentMin = list[j];
+	                    currentMinIndex=j;
+	                }
+	            }
+	            
+	            if (currentMinIndex !=i) {
+	                list[currentMinIndex]=list[i];
+	                list[i]=currentMin;
+	            }
+	        }
+	    }
+
+	}
