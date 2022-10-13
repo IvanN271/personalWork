@@ -1,0 +1,37 @@
+public class InsertionSorting {
+    
+    public static void main(String[] args) {
+        ArrayList<String> color = new ArrayList<String>(5);
+        color.add("White");
+        color.add("Black");
+        color.add("Red");
+        color.add("White");
+        color.add("Yellow");
+        
+        for (int i = 0; i < 5; i++) {
+            System.out.println(color.get(i).toString());
+        }
+        System.out.println();
+        insertionSort(color);
+        for (int i = 0; i < 5; i++) {
+            System.out.println(color.get(i).toString());
+        }
+    }
+    
+    public static ArrayList<String>
+            insertionSort(ArrayList<String> a) {
+        for (int i = 1; i < a.size(); i++) {
+            String s = a.get(i);
+            int j = i - 1;
+            while (j >= 0 && s.compareTo(a.get(j)) > 0) {
+                String y = a.get(j + 1);
+                a.set(j + 1, a.get(j));
+                a.set(j, y);
+                j--;
+            }
+            String y = a.get(j + 1);
+            y = s;
+        }
+        return a;
+    }
+}
